@@ -1,0 +1,13 @@
+.register {
+    margin-top: 80px;
+    width: 400px;
+    border: 1px solid #ada9a9;
+    background-color: #eeeded;
+    padding: 30px;
+    border-radius: 15px;
+}
+
+button {
+    display: block;
+    width: 100%;
+}
