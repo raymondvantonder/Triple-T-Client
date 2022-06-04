@@ -1,0 +1,22 @@
+.container {
+    width: 50vw;
+}
+
+.heading {
+    background: var(--color-accent);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.spacer {
+    height: 2vh;
+}
+
+h1 {
+    font-size: 30px;
+}
+
+mat-card {
+    margin: 2em auto;
+}

@@ -1,0 +1,109 @@
+
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@import '~@angular/material/theming';
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat-core();
+
+$md-tripletpalette: (
+    50 : #fcfafa,
+    100 : #f7f4f3,
+    200 : #f1ecec,
+    300 : #ebe4e4,
+    400 : #e7dfde,
+    500 : #e3d9d8,
+    600 : #e0d5d4,
+    700 : #dccfce,
+    800 : #d8cac8,
+    900 : #d0c0bf,
+    A100 : #ffffff,
+    A200 : #ffffff,
+    A400 : #ffffff,
+    A700 : #ffffff,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #000000,
+        500 : #000000,
+        600 : #000000,
+        700 : #000000,
+        800 : #000000,
+        900 : #000000,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #000000,
+    )
+);
+
+$md-tripletsecondarypalette: (
+    50 : #f4f6f6,
+    100 : #e4e9e8,
+    200 : #d2dad8,
+    300 : #c0cbc8,
+    400 : #b3bfbd,
+    500 : #a5b4b1,
+    600 : #9dadaa,
+    700 : #93a4a1,
+    800 : #8a9c98,
+    900 : #798c88,
+    A100 : #ffffff,
+    A200 : #e1fdf7,
+    A400 : #adffeb,
+    A700 : #93ffe5,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #000000,
+        500 : #000000,
+        600 : #000000,
+        700 : #000000,
+        800 : #000000,
+        900 : #000000,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #000000,
+    )
+);
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$triple-t-primary: mat-palette($md-tripletpalette);
+$triple-t-accent: mat-palette($md-tripletsecondarypalette);
+
+// The warn palette is optional (defaults to red).
+$triple-t-warn: mat-palette($mat-red);
+
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as "color" or "typography".
+$triple-t-theme: mat-light-theme((
+  color: (
+    primary: $triple-t-primary,
+    accent: $triple-t-accent,
+    warn: $triple-t-warn,
+  )
+));
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include angular-material-theme($triple-t-theme);
+
+$primary: map-get($triple-t-theme, primary);
+$accent: map-get($triple-t-theme, accent);
+
+:root {
+  --color-primary: #{mat-color($triple-t-primary)};
+  --color-accent: #{mat-color($triple-t-accent)};
+  --color-warn: #{mat-color($triple-t-warn)};
+}

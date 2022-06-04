@@ -1,0 +1,6 @@
+<app-layout 
+[user]="user$ | async"
+[isBusy]="isBusy$ | async"
+[isUserLoggedIn]="isUserLoggedIn$ | async"
+[snackBarDetails]="snackBarDetails$ | async"
+(clearSnackBarEvent)="clearSnackBar()"></app-layout>

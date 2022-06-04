@@ -1,0 +1,54 @@
+<div class="lds-test" *ngIf="isBusy$ | async">
+  <div class="lds-grid">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+</div>
+<div class="container">
+  <mat-toolbar color="primary" class="navbar">
+    <div class="pull-left">Triple-T</div>
+    <div>
+      <a mat-button routerLink="/home" class="nav-item-main">home</a>
+      <a mat-button routerLink="/about" class="nav-item-main">about</a>
+
+      <button mat-button [matMenuTriggerFor]="menu" #menuTrigger="matMenuTrigger" class="nav-item-main no-focus"
+        (mouseenter)="openResourceMenu(); recheckIfInMenu = true" (mouseleave)="recheckIfInMenu = false"> services
+      </button>
+
+      <mat-menu #menu="matMenu" [overlapTrigger]="false">
+        <span (mouseenter)="recheckIfInMenu = true" (mouseleave)="closeResourceMenu(); recheckIfInMenu = false">
+          <button mat-menu-item>
+            Tutoring
+          </button>
+          <button mat-menu-item>
+            Life Coaching
+          </button>
+        </span>
+      </mat-menu>
+    </div>
+    <!-- <div class="pull-right" *ngIf="!(isUserLoggedIn$ | async)"> -->
+    <div class="pull-right" *ngIf="isUserLoggedIn$ | async">
+      <a mat-button routerLink="/login" class="nav-item-secondary">login</a>
+      <a mat-button routerLink="/register" class="nav-item-secondary">register</a>
+    </div>
+    <!-- <div class="pull-right" *ngIf="isUserLoggedIn$ | async"> -->
+    <div class="pull-right">
+      <button mat-icon-button color="black" class="icon-display">
+        <mat-icon>account_circle</mat-icon>
+      </button>
+
+      <span>user$ | async</span>
+      <!-- <a mat-button class="nav-item-secondary">logout</a> -->
+    </div>
+  </mat-toolbar>
+  <div class="content">
+    <router-outlet></router-outlet>
+  </div>
+</div>
